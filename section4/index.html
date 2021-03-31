@@ -31,8 +31,8 @@
         </p>
 
         <div class="form-group">
-          <label for="name">お名前</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="例)山田 太郎"> 
+          <label for="name">お名前<span class="badge badge-danger">必須</span></label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="例)山田 太郎" required> 
         </div>
         <div class="form-group">
           <label for="job">ご職業</label>
@@ -76,6 +76,13 @@
             <input type="radio" name="q2" id="q2-4" value="" class="form-check-input">
             <label for="q2-4" class="form-check-label">回答しない</label>
           </div>
+        </div>
+        <div class="form-group">
+          <label for="massage">ご意見</label>
+          <textarea name="massage" id="massage" rows="10" class="form-control"></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">送信する</button>
         </div>
       </div>
     </form>
