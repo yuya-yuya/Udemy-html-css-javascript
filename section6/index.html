@@ -23,7 +23,27 @@
   </div>
 
   <script>
-    document.getElementById('timer').innerHTML = '00:00:01';
+    var addZero = function(value){
+      if(value < 10){
+      value = '0' + value;
+      }
+
+      return value;
+    }
+
+    document.getElementById('start-stop').addEventListener('click', function(){
+      var now = new Date();
+      var seconds = now.getSeconds();
+      seconds = addZero(seconds);
+
+      var minutes = now.getMinutes();
+      minutes = addZero(minutes);
+
+      var hours = now.getHours();
+      hours = addZero(hours);
+
+      document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+    });
   </script>
 </body>
 </html>
