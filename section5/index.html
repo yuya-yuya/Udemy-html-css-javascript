@@ -20,11 +20,10 @@
 
   <div class="container">
     <script>
-      /*
-      日付を表示する
-      後で日付を変えます
-      */
-      document.write('<p class="date">20xx/01/23</p>');
+      var today = new Date();
+      var todayhtml = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+
+      document.write('<p class="date">' + todayhtml + '</p>')
     </script>
   </div>
 </body>
