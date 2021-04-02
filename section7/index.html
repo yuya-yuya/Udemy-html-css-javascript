@@ -22,36 +22,57 @@
   </div>
 
   <script>
-    var images = [
-      {
-        "path": "img/img01.png",
-        "name": "name01",
-        "caption": "コメント1"
-      },
-      {
-        "path": "img/img02.png",
-        "name": "name02",
-        "caption": "コメント2"
-      }
-    ];
+   var ajax = new XMLHttpRequest();
+   ajax.open('GET', 'https://h2o-space.com/htmlbook/images.php');
+   ajax.responseType = 'json';
+   ajax.send(null);
 
-    var img;
-    var caption;
-    var div;
-    img = document.createElement('img');
-    img.setAttribute('src', images[0].path);
+   ajax.onreadystatechange = function(){
+     if(ajax.readyState === 4 && ajax.state === 200){
+       for(var i = 0; i < this.response.length; i++){
+         alert(this.response[i].path);
+       }
+     };
+   };
 
-    caption = document.createElement('div');
-    caption.className ='inner';
-    caption.innerHTML = '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
+    // var images = [
+    //   {
+    //     "path": "img/img01.png",
+    //     "name": "name01",
+    //     "caption": "コメント1"
+    //   },
+    //   {
+    //     "path": "img/img02.png",
+    //     "name": "name02",
+    //     "caption": "コメント2"
+    //   },
+    //   {
+    //     "path": "img/img03.png",
+    //     "name": "name03",
+    //     "caption": "コメント3"
+    //   }
+    // ];
 
-    div = document.createElement('div');
-    div.className = 'photo';
-    div.appendChild(img);
-    div.appendChild(caption);
-  
+    // var img;
+    // var caption;
+    // var div;
+    
+    // for(var i = 0; i < images.length; i++){
+    //   img = document.createElement('img');
+    //   img.setAttribute('src', images[i].path);
 
-    document.getElementById('img_unit').appendChild(div);
+    //   caption = document.createElement('div');
+    //   caption.className ='inner';
+    //   caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
+
+    //   div = document.createElement('div');
+    //   div.className = 'photo';
+    //   div.appendChild(img);
+    //   div.appendChild(caption);
+    
+
+    //   document.getElementById('img_unit').appendChild(div);
+    // }
   </script>
 </body>
 </html>
